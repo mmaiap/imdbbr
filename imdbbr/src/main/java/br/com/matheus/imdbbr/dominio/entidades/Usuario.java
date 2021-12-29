@@ -1,4 +1,4 @@
-package br.com.matheus.imdbbr.dominio;
+package br.com.matheus.imdbbr.dominio.entidades;
 
 import lombok.Data;
 
