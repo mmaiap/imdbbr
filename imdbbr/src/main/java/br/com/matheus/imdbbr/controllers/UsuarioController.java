@@ -48,6 +48,7 @@ public class UsuarioController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> editar(@RequestBody UsuarioDto usuarioDto, @PathVariable Integer id){
         Usuario usuario = service.fromDto(usuarioDto);
+        usuario.setId(id);
         service.updateUsuario(usuario);
         return ResponseEntity.noContent().build();
     }

@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    List<Usuario> findAllByAtivoOrderByNomeAsc(Integer ativo);
+    List<Usuario> findAllByStatusAtivoOrderByNomeAsc(Integer ativo);
 
     @Query(value = "SELECT * FROM USUARIOS WHERE ATIVO = 1",
             countQuery = "SELECT COUNT(*) FROM usuarios",

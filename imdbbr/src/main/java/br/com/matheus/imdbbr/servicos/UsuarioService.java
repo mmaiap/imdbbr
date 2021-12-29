@@ -38,7 +38,7 @@ public class UsuarioService {
     }
 
     public List<Usuario> listarUsuariosAtivos(){
-        return repository.findAllByAtivoOrderByNomeAsc(1);
+        return repository.findAllByStatusAtivoOrderByNomeAsc(1);
     }
 
     public Page<Usuario> listarUsuariosAtivosPaginados(Integer page){
@@ -53,9 +53,9 @@ public class UsuarioService {
     }
 
     private void updateData(Usuario novoUsuario, Usuario usuario) {
-        novoUsuario.setNome(usuario.getNome());
-        novoUsuario.setEmail(usuario.getEmail());
-        novoUsuario.setSenha(usuario.getSenha());
+        novoUsuario.setNome(usuario.getNome() == null ? novoUsuario.getNome() : usuario.getNome());
+        novoUsuario.setEmail(usuario.getEmail() == null? novoUsuario.getEmail() : usuario.getEmail());
+        novoUsuario.setSenha(usuario.getSenha() == null ? novoUsuario.getSenha() : usuario.getSenha());
     }
 
     private void desativar(Usuario novoUsuario) {
